@@ -10,14 +10,18 @@ public class World {
             directions[i] = swap(args[i]);
         }
 
-        World.run(directions);
+        World.run(args);
         World.moves(directions);
-        System.out.println("Koniec");
+        System.out.println("System shut down");
     }
 
     public static void run(String[] args){
         int counter = 0;
+
         for(String x: args ){
+            if((x.equals("f") || x.equals("b") || x.equals("r") || x.equals("l")) && counter>0)
+                System.out.print(", ");
+            counter++;
             switch(x){
                 case "f":
                     System.out.print("Zwierze idzie do przodu");
@@ -31,45 +35,48 @@ public class World {
                 case "l":
                     System.out.print("Zwierze idzie w lewo");
                     break;
+                    default:
+                        counter--;
+
             }
-            counter++;
-            if(counter != args.length )
-                System.out.print(", ");
-            else
-                System.out.println();
+
 
         }
+        System.out.println();
     }
 
     public static Direction swap(String x){
         switch(x){
             case "f":
                 return Direction.FORWARD;
-            break;
+
             case "b":
                 return Direction.BACKWARD;
-            break;
+
             case "r":
                 return Direction.RIGHT;
-            break;
+
             case "l":
                 return Direction.LEFT;
-            break;
+
 
             default:
-                return Direction.NAN;
+                return Direction.WRONG;
         }
     }
 
     public static void moves(Direction[] directions){
         int counter = 0;
         for(Direction x: directions ){
+            if((x==Direction.FORWARD || x==Direction.BACKWARD || x==Direction.LEFT || x==Direction.RIGHT) && counter>0)
+                System.out.print(", ");
+            counter++;
             switch(x){
                 case FORWARD:
                     System.out.print("FORWARD");
                     break;
-                case BACKWARDS:
-                    System.out.print("BACKWARDS");
+                case BACKWARD:
+                    System.out.print("BACKWARD");
                     break;
                 case RIGHT:
                     System.out.print("RIGHT");
@@ -78,14 +85,12 @@ public class World {
                     System.out.print("LEFT");
                     break;
 
-                default:
-                    System.out.print("WRONG DIRECTION");
+                    default:
+                        counter--;
+
             }
-            counter++;
-            if(counter != args.length )
-                System.out.print(", ");
-            else
-                System.out.println();
+
         }
+        System.out.println();
     }
 }
