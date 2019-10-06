@@ -1,6 +1,7 @@
 package agh.cs.lab2;
 
 public class Vector2d {
+
     public final int x, y;
 
     public Vector2d(int x, int y){
