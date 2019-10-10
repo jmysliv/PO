@@ -56,20 +56,15 @@ public enum MapDirection {
     public Vector2d toUnitVector(){
         switch (this){
             case NORTH:
-                Vector2d result = new Vector2d(0, 1);
-                return result;
+                return new Vector2d(0, 1);
             case SOUTH:
-                Vector2d result1 = new Vector2d(0, -1);
-                return result1;
+                return new Vector2d(0, -1);
             case EAST:
-                Vector2d result2 = new Vector2d(1, 0);
-                return result2;
+                return new Vector2d(1, 0);
             case WEST:
-                Vector2d result3 = new Vector2d(-1, 0);
-                return result3;
+                return new Vector2d(-1, 0);
             default:
-                Vector2d result4 = new Vector2d(0, 0);
-                return result4;
+                return new Vector2d(0, 0);
         }
     }
 

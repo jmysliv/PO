@@ -2,11 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="89255543-f5d9-4dc1-8fc6-6cd1a0645f12" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/agh/cs/lab2/MapDirectionTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/test/test/MapDirectionTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/agh/cs/lab2/Vector2d.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/agh/cs/lab2/Vector2d.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/MapDirectionTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/test/agh/cs/lab2/CarSystem.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/test/agh/cs/lab2/Vector2d.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/test/agh/cs/lab2/Vector2d.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/test/lab2/MapDirectionTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/agh/cs/lab2/CarSystem.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/agh/cs/lab2/MapDirection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/agh/cs/lab2/MapDirection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/agh/cs/lab2/Vector2dTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/agh/cs/lab2/Vector2dTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -32,31 +34,31 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/agh/cs/lab2/CarSystem.java">
+        <entry file="file://$PROJECT_DIR$/src/main/agh/cs/lab3/Car.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/agh/cs/lab2/MoveDirection.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" column="4" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="4" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/agh/cs/lab2/MapDirectionTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="24" selection-start-line="24" selection-end-line="24" />
+            <state relative-caret-position="595">
+              <caret line="35" column="22" selection-start-line="35" selection-start-column="22" selection-end-line="35" selection-end-column="22" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/agh/cs/lab2/World.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="357">
+              <caret line="21" column="32" selection-start-line="21" selection-start-column="32" selection-end-line="21" selection-end-column="32" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/agh/cs/lab3/OptionParser.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="10" column="6" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
             </state>
           </provider>
         </entry>
@@ -64,37 +66,25 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/agh/cs/lab2/Vector2d.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="17" lean-forward="true" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+            <state relative-caret-position="595">
+              <caret line="35" column="45" selection-start-line="35" selection-start-column="45" selection-end-line="35" selection-end-column="45" />
               <folding>
-                <element signature="e#181#182#0" expanded="true" />
-                <element signature="e#235#236#0" expanded="true" />
-                <element signature="e#278#279#0" expanded="true" />
-                <element signature="e#339#340#0" expanded="true" />
-                <element signature="e#386#387#0" expanded="true" />
-                <element signature="e#447#448#0" expanded="true" />
-                <element signature="e#558#559#0" expanded="true" />
-                <element signature="e#637#638#0" expanded="true" />
-                <element signature="e#793#794#0" expanded="true" />
-                <element signature="e#872#873#0" expanded="true" />
-                <element signature="e#1022#1023#0" expanded="true" />
-                <element signature="e#1093#1094#0" expanded="true" />
-                <element signature="e#1141#1142#0" expanded="true" />
-                <element signature="e#1212#1213#0" expanded="true" />
+                <element signature="e#185#186#0" expanded="true" />
+                <element signature="e#239#240#0" expanded="true" />
+                <element signature="e#285#286#0" expanded="true" />
+                <element signature="e#346#347#0" expanded="true" />
+                <element signature="e#391#392#0" expanded="true" />
+                <element signature="e#452#453#0" expanded="true" />
+                <element signature="e#501#502#0" expanded="true" />
+                <element signature="e#580#581#0" expanded="true" />
+                <element signature="e#628#629#0" expanded="true" />
+                <element signature="e#707#708#0" expanded="true" />
+                <element signature="e#749#750#0" expanded="true" />
+                <element signature="e#820#821#0" expanded="true" />
+                <element signature="e#868#869#0" expanded="true" />
+                <element signature="e#939#940#0" expanded="true" />
                 <element signature="e#1190#1191#0" expanded="true" />
-                <element signature="e#1226#1227#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/test/agh/cs/lab2/Vector2dTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
-              <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#1246#1247#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -106,8 +96,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
-        <option value="Class" />
         <option value="JUnit4 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -126,14 +116,20 @@
         <option value="$PROJECT_DIR$/src/test/MapDirectionTest.java" />
         <option value="$PROJECT_DIR$/src/test/lab2/MapDirectionTest.java" />
         <option value="$PROJECT_DIR$/src/main/agh/cs/lab2/Vector2d.java" />
+        <option value="$PROJECT_DIR$/src/main/agh/cs/lab2/CarSystem.java" />
         <option value="$PROJECT_DIR$/src/test/agh/cs/lab2/Vector2dTest.java" />
+        <option value="$PROJECT_DIR$/src/main/agh/cs/lab2/MapDirection.java" />
+        <option value="$PROJECT_DIR$/src/main/agh/cs/lab3/Car.java" />
+        <option value="$PROJECT_DIR$/src/main/agh/cs/lab2/World.java" />
+        <option value="$PROJECT_DIR$/src/main/agh/cs/lab3/OptionParser.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="294" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
     <option name="width" value="656" />
-    <option name="height" value="696" />
+    <option name="height" value="686" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -141,8 +137,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -180,19 +174,16 @@
               <item name="lab1" type="b2602c69:ProjectViewProjectNode" />
               <item name="lab1" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="lab1" type="b2602c69:ProjectViewProjectNode" />
-              <item name="lab1" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="lab2" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="cs" type="462c0819:PsiDirectoryNode" />
+              <item name="lab3" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -202,7 +193,7 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1570649924590" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1570723012882" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -238,7 +229,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.MapDirectionTest.previousTest">
+  <component name="RunManager" selected="Application.World (1)">
     <configuration name="CarSystem" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="agh.cs.lab2.CarSystem" />
       <module name="test" />
@@ -252,24 +243,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="World" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="agh.cs.lab1.World" />
+    <configuration name="World (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="agh.cs.lab2.World" />
       <module name="test" />
-      <option name="PROGRAM_PARAMETERS" value="a f l b r o p" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="agh.cs.lab1.*" />
+          <option name="PATTERN" value="agh.cs.lab2.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="All in test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="test" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="TEST_OBJECT" value="package" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -306,13 +288,28 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Vector2dTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="agh.cs.lab2.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="agh.cs.lab2" />
+      <option name="MAIN_CLASS_NAME" value="agh.cs.lab2.Vector2dTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.World (1)" />
+        <item itemvalue="JUnit.Vector2dTest" />
+        <item itemvalue="Application.CarSystem" />
         <item itemvalue="JUnit.MapDirectionTest.previousTest" />
         <item itemvalue="JUnit.MapDirectionTest.nextTest" />
-        <item itemvalue="JUnit.All in test" />
-        <item itemvalue="Application.CarSystem" />
-        <item itemvalue="Application.World" />
       </list>
     </recent_temporary>
   </component>
@@ -330,7 +327,9 @@
       <workItem from="1570295421899" duration="3304000" />
       <workItem from="1570358932741" duration="431000" />
       <workItem from="1570368704639" duration="11550000" />
-      <workItem from="1570647352272" duration="2554000" />
+      <workItem from="1570647352272" duration="4953000" />
+      <workItem from="1570701785979" duration="886000" />
+      <workItem from="1570721508067" duration="1492000" />
     </task>
     <servers />
   </component>
@@ -356,15 +355,18 @@
     <history-entry file="MapDirectionTest_previousTest - 2019.10.09 at 21h 17m 23s.xml">
       <configuration name="MapDirectionTest.previousTest" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="Vector2dTest - 2019.10.10 at 17h 36m 39s.xml">
+      <configuration name="Vector2dTest" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="18176000" />
+    <option name="totallyTimeSpent" value="22953000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17537314" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17857143" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -373,7 +375,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.20043337" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.20043337" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -383,7 +385,7 @@
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Terminal" order="10" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="12" weight="0.3285968" />
+      <window_info anchor="bottom" id="Messages" order="12" weight="0.32827735" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -407,22 +409,32 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/agh/cs/lab2/MapDirection.java">
+    <entry file="file://$PROJECT_DIR$/src/main/agh/cs/lab2/CarSystem.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="24" column="32" lean-forward="true" selection-start-line="24" selection-start-column="32" selection-end-line="24" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/agh/cs/lab1/World.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1190">
-          <caret line="70" column="104" selection-start-line="70" selection-start-column="104" selection-end-line="70" selection-end-column="104" />
+        <state relative-caret-position="255">
+          <caret line="15" column="32" selection-start-line="15" selection-start-column="32" selection-end-line="15" selection-end-column="32" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test.iml">
       <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../lab/test.iml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/agh/cs/lab2/MapDirection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1156">
+          <caret line="68" column="5" selection-start-line="68" selection-start-column="5" selection-end-line="68" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../lab/src/main/agh/cs/lab2/MapDirection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="935">
+          <caret line="55" selection-start-line="55" selection-end-line="68" selection-end-column="5" />
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/agh/cs/lab2/MapDirectionTest.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -441,45 +453,69 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/agh/cs/lab2/CarSystem.java">
+    <entry file="file://$PROJECT_DIR$/src/main/agh/cs/lab1/World.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/agh/cs/lab2/Vector2d.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="17" lean-forward="true" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
-          <folding>
-            <element signature="e#181#182#0" expanded="true" />
-            <element signature="e#235#236#0" expanded="true" />
-            <element signature="e#278#279#0" expanded="true" />
-            <element signature="e#339#340#0" expanded="true" />
-            <element signature="e#386#387#0" expanded="true" />
-            <element signature="e#447#448#0" expanded="true" />
-            <element signature="e#558#559#0" expanded="true" />
-            <element signature="e#637#638#0" expanded="true" />
-            <element signature="e#793#794#0" expanded="true" />
-            <element signature="e#872#873#0" expanded="true" />
-            <element signature="e#1022#1023#0" expanded="true" />
-            <element signature="e#1093#1094#0" expanded="true" />
-            <element signature="e#1141#1142#0" expanded="true" />
-            <element signature="e#1212#1213#0" expanded="true" />
-            <element signature="e#1190#1191#0" expanded="true" />
-            <element signature="e#1226#1227#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="1190">
+          <caret line="70" column="104" selection-start-line="70" selection-start-column="104" selection-end-line="70" selection-end-column="104" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/agh/cs/lab2/Vector2dTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
+        <state relative-caret-position="748">
+          <caret line="44" lean-forward="true" selection-start-line="44" selection-end-line="44" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/agh/cs/lab2/Vector2d.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="595">
+          <caret line="35" column="45" selection-start-line="35" selection-start-column="45" selection-end-line="35" selection-end-column="45" />
+          <folding>
+            <element signature="e#185#186#0" expanded="true" />
+            <element signature="e#239#240#0" expanded="true" />
+            <element signature="e#285#286#0" expanded="true" />
+            <element signature="e#346#347#0" expanded="true" />
+            <element signature="e#391#392#0" expanded="true" />
+            <element signature="e#452#453#0" expanded="true" />
+            <element signature="e#501#502#0" expanded="true" />
+            <element signature="e#580#581#0" expanded="true" />
+            <element signature="e#628#629#0" expanded="true" />
+            <element signature="e#707#708#0" expanded="true" />
+            <element signature="e#749#750#0" expanded="true" />
+            <element signature="e#820#821#0" expanded="true" />
+            <element signature="e#868#869#0" expanded="true" />
+            <element signature="e#939#940#0" expanded="true" />
+            <element signature="e#1190#1191#0" expanded="true" />
+            <element signature="e#1246#1247#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/agh/cs/lab2/World.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="21" column="32" selection-start-line="21" selection-start-column="32" selection-end-line="21" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/agh/cs/lab3/Car.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="595">
+          <caret line="35" column="22" selection-start-line="35" selection-start-column="22" selection-end-line="35" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/agh/cs/lab3/OptionParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="6" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
         </state>
       </provider>
     </entry>
