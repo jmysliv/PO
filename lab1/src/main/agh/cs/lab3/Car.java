@@ -15,7 +15,11 @@ public class Car {
     }
 
     public String toString(){
-        return String.format("Position: %s ; Direction: %s", this.position.toString(), this.direction.toString());
+        return String.format("Position: %s; Direction: %s", this.position.toString(), this.direction.toString());
+    }
+
+    public Vector2d getPosition(){
+        return new Vector2d(this.position.x, this.position.y);
     }
 
     public void move(MoveDirection instruction){
