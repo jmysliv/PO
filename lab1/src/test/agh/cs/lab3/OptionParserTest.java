@@ -10,7 +10,7 @@ public class OptionParserTest {
 
     @Test
     public void parseTest() {
-        String args[] = {"f", "a", "left", "r", "backward", "forward", "b", "l", "right"} ;
+        String args[] = {"f", "a", "left", "r", "backward", "forward", "b", "l", "right", "ret"} ;
         MoveDirection expected[] = {
             MoveDirection.FORWARD,
             MoveDirection.LEFT,
@@ -21,6 +21,8 @@ public class OptionParserTest {
             MoveDirection.LEFT,
             MoveDirection.RIGHT
         } ;
-        assertEquals(expected, OptionParser.parse(args));
+        assertArrayEquals(expected, OptionParser.parse(args));
     }
+
+
 }
