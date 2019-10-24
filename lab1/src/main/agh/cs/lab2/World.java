@@ -2,15 +2,21 @@ package agh.cs.lab2;
 
 import agh.cs.lab3.Animal;
 import agh.cs.lab3.OptionParser;
+import agh.cs.lab4.IWorldMap;
+import agh.cs.lab4.RectangularMap;
 
 public class World {
 
     public static void main(String[] args){
-     MoveDirection[] directions = OptionParser.parse(args);
-     Animal animal = new Animal();
-     for(MoveDirection x :directions){
-         animal.move(x);
-         System.out.println(animal);
-     }
+        MoveDirection[] directions = OptionParser.parse(args);
+        IWorldMap map = new RectangularMap(10, 5);
+        Animal animal1 = new Animal(map);
+        map.place(animal1);
+        Animal  animal2 = new Animal(map,new Vector2d(3,4));
+        map.place(animal2);
+        map.run(directions);
+        System.out.println(animal1.toLongString());
+        System.out.println(animal2.toLongString());
+        System.out.println(map);
     }
 }

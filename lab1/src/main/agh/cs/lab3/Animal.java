@@ -28,25 +28,30 @@ public class Animal {
         this.position = new Vector2d(initialPosition.x, initialPosition.y);
     }
 
-    public String toString(){
+    public String toLongString(){
         return String.format("Position: %s; Direction: %s", this.position.toString(), this.direction.toString());
-//        switch(this.direction){
-//            case WEST:
-//                return "W";
-//            case EAST:
-//                return "E";
-//            case NORTH:
-//                return "N";
-//            case SOUTH:
-//                return "S";
-//                default:
-//                    return null;
-//        }
+    }
+
+    public String toString(){
+
+        switch(this.direction){
+            case WEST:
+                return "W";
+            case EAST:
+                return "E";
+            case NORTH:
+                return "N";
+            case SOUTH:
+                return "S";
+                default:
+                    return null;
+        }
     }
 
     public Vector2d getPosition(){
         return new Vector2d(this.position.x, this.position.y);
     }
+
     public MapDirection getDirection(){
         return this.direction;
     }
@@ -67,6 +72,25 @@ public class Animal {
             case BACKWARD:
                 if(this.position.substract(this.direction.toUnitVector()).follows(new Vector2d(0, 0)) && this.position.substract(this.direction.toUnitVector()).precedes(new Vector2d(4, 4)))
                // if(map.canMoveTo(this.position.substract(this.direction.toUnitVector())))
+                    this.position=this.position.substract(this.direction.toUnitVector());
+                break;
+        }
+    }
+
+    public void moveInsideMap(MoveDirection instruction){
+        switch(instruction){
+            case RIGHT:
+                this.direction = this.direction.next();
+                break;
+            case LEFT:
+                this.direction = this.direction.previous();
+                break;
+            case FORWARD:
+                if(map.canMoveTo(this.position.add(this.direction.toUnitVector())))
+                    this.position=this.position.add(this.direction.toUnitVector());
+                break;
+            case BACKWARD:
+                if(map.canMoveTo(this.position.substract(this.direction.toUnitVector())))
                     this.position=this.position.substract(this.direction.toUnitVector());
                 break;
         }

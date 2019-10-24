@@ -13,12 +13,12 @@ public class AnimalTest {
 
     @Test
     public void toStringTest() {
-        Assert.assertEquals("Position: (2, 2); Direction: Północ", animal1.toString());
+        Assert.assertEquals("Position: (2, 2); Direction: Północ", animal1.toLongString());
         animal1.move(MoveDirection.RIGHT);
         animal1.move(MoveDirection.FORWARD);
         animal1.move(MoveDirection.FORWARD);
         animal1.move(MoveDirection.FORWARD);
-        Assert.assertEquals("Position: (4, 2); Direction: Wschód", animal1.toString());
+        Assert.assertEquals("Position: (4, 2); Direction: Wschód", animal1.toLongString());
     }
 
     Animal animal2 = new Animal();
