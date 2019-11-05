@@ -22,10 +22,12 @@ public class Vector2d {
     }
 
     public Vector2d upperRight(Vector2d other){
+        if(other==null) return this;
         return new Vector2d(Math.max(x, other.x), Math.max(y, other.y));
     }
 
     public Vector2d lowerLeft(Vector2d other){
+        if(other==null) return this;
         return new Vector2d(Math.min(x, other.x), Math.min(y, other.y));
     }
 

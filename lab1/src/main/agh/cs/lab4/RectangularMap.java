@@ -22,10 +22,10 @@ public class RectangularMap implements IWorldMap{
         MapVisualizer map = new MapVisualizer(this);
         return map.draw(this.leftBottom, this.rightTop);
     }
+
     @Override
     public boolean canMoveTo(Vector2d position) {
        return (!isOccupied(position) && position.follows(leftBottom) && position.precedes(rightTop));
-
     }
 
     @Override

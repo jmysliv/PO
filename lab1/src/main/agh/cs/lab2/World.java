@@ -4,12 +4,13 @@ import agh.cs.lab3.Animal;
 import agh.cs.lab3.OptionParser;
 import agh.cs.lab4.IWorldMap;
 import agh.cs.lab4.RectangularMap;
+import agh.cs.lab5.GrassField;
 
 public class World {
 
     public static void main(String[] args){
         MoveDirection[] directions = OptionParser.parse(args);
-        IWorldMap map = new RectangularMap(10, 5);
+        IWorldMap map = new GrassField(10);
         Animal animal1 = new Animal(map);
         map.place(animal1);
         Animal  animal2 = new Animal(map,new Vector2d(3,4));
