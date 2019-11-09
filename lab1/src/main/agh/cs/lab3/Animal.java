@@ -4,11 +4,11 @@ import agh.cs.lab2.MapDirection;
 import agh.cs.lab2.MoveDirection;
 import agh.cs.lab2.Vector2d;
 import agh.cs.lab4.IWorldMap;
+import agh.cs.lab5.AbstractWorldMapElement;
 
-public class Animal {
+public class Animal extends AbstractWorldMapElement {
 
     private MapDirection direction;
-    private Vector2d position;
     private IWorldMap map;
 
     public Animal(){
@@ -48,9 +48,6 @@ public class Animal {
         }
     }
 
-    public Vector2d getPosition(){
-        return new Vector2d(this.position.x, this.position.y);
-    }
 
     public MapDirection getDirection(){
         return this.direction;

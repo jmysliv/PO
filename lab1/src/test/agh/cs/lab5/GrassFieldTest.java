@@ -1,16 +1,19 @@
-package agh.cs.lab4;
+package agh.cs.lab5;
 
 import agh.cs.lab2.MoveDirection;
 import agh.cs.lab2.Vector2d;
 import agh.cs.lab3.Animal;
 import agh.cs.lab3.OptionParser;
+import agh.cs.lab4.IWorldMap;
+import agh.cs.lab4.RectangularMap;
 import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
 
-public class RectangularMapTest {
-    private IWorldMap map;
+public class GrassFieldTest {
+
+    private GrassField map;
     private Animal animal1;
     private Animal animal2;
 
@@ -18,36 +21,29 @@ public class RectangularMapTest {
     public void setUp(){
         String[] args = {"f", "b", "r", "l", "f", "f", "r", "r", "f", "f", "f", "f", "f", "f", "f"};
         MoveDirection[] directions = OptionParser.parse(args);
-        map = new RectangularMap(10, 5);
+        map = new GrassField(10);
         animal1 = new Animal(map);
         animal2 = new Animal(map, new Vector2d(3, 4));
         map.place(animal1);
         map.place(animal2);
         map.run(directions);
     }
-
+/*
     @Test
-    public void objectAt() {
-        assertNull(map.objectAt(new Vector2d(1, 1)));
-        assertEquals(animal1, map.objectAt(animal1.getPosition()));
-        assertEquals(animal2, map.objectAt(animal2.getPosition()));
+    public void lowerLeft() {
     }
 
     @Test
-    public void isOccupied() {
-        assertTrue(map.isOccupied(animal1.getPosition()));
-        assertTrue(map.isOccupied(animal2.getPosition()));
-        assertFalse(map.isOccupied(new Vector2d(1, 3)));
+    public void upperRight() {
     }
+    */
 
     @Test
     public void canMoveTo() {
         assertFalse(map.canMoveTo(animal1.getPosition()));
         assertFalse(map.canMoveTo(animal2.getPosition()));
         assertTrue(map.canMoveTo(new Vector2d(8,4)));
-        assertFalse(map.canMoveTo(new Vector2d(3, 11)));
     }
-
 
     @Test
     public void place() {
@@ -58,7 +54,7 @@ public class RectangularMapTest {
         assertFalse(map.place(newAnimal1));
         assertFalse(map.place(newAnimal2));
         assertTrue(map.place(newAnimal3));
-        assertFalse(map.place(newAnimal4));
+        assertTrue(map.place(newAnimal4));
     }
 
     @Test
@@ -67,10 +63,27 @@ public class RectangularMapTest {
         String[] args = {"f", "b", "r", "l", "f", "l", "r", "f", "f", "f"};
         MoveDirection[] directions = OptionParser.parse(args);
         map.run(directions);
-        assertEquals("N", map.objectAt(new Vector2d(1, 1)).toString());
-        assertEquals("S", map.objectAt(new Vector2d(3, 1)).toString());
-        assertFalse(map.isOccupied(new Vector2d(3, 4)));
+        assertEquals("N", map.objectAt(new Vector2d(1, -1)).toString());
+        assertEquals("S", map.objectAt(new Vector2d(3, 3)).toString());
+        assertFalse(map.isOccupied(new Vector2d(-1, -1)));
         assertFalse(map.isOccupied(position2));
+    }
 
+    @Test
+    public void isOccupied() {
+        IWorldMapElement grass = map.getSomeGrassToTestIt();
+        assertTrue(map.isOccupied(animal1.getPosition()));
+        assertTrue(map.isOccupied(animal2.getPosition()));
+        assertTrue(map.isOccupied(grass.getPosition()));
+        assertFalse(map.isOccupied(new Vector2d(1, -3)));
+    }
+
+    @Test
+    public void objectAt() {
+        IWorldMapElement grass = map.getSomeGrassToTestIt();
+        assertNull(map.objectAt(new Vector2d(1, -1)));
+        assertEquals(animal1, map.objectAt(animal1.getPosition()));
+        assertEquals(animal2, map.objectAt(animal2.getPosition()));
+        assertEquals(grass, map.objectAt(grass.getPosition()));
     }
 }
