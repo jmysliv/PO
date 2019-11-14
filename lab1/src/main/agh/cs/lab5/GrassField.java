@@ -26,6 +26,7 @@ public class GrassField extends AbstractWorldMap{
                 Grass grass = new Grass(new Vector2d(x, y));
                 if(!isOccupied(grass.getPosition())){
                     mapElements.add(grass);
+                    hashMapElements.put(grass.getPosition(), grass);
                     isEmpty = true;
                 }
             }
@@ -55,4 +56,10 @@ public class GrassField extends AbstractWorldMap{
         return rightTop;
     }
 
+    @Override
+    public boolean canMoveTo(Vector2d position) {
+        if (super.canMoveTo(position)) return true;
+        if(objectAt(position) instanceof Grass) return true;
+        return false;
+    }
 }

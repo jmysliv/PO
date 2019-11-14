@@ -28,7 +28,7 @@ public class OptionParser {
                 return MoveDirection.LEFT;
 
                 default:
-                    return null;
+                    throw new IllegalArgumentException( s + " is not legal move specification");
 
         }
     }

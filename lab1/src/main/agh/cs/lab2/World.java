@@ -9,15 +9,19 @@ import agh.cs.lab5.GrassField;
 public class World {
 
     public static void main(String[] args){
-        MoveDirection[] directions = OptionParser.parse(args);
-        IWorldMap map = new GrassField(10);
-        Animal animal1 = new Animal(map);
-        map.place(animal1);
-        Animal  animal2 = new Animal(map,new Vector2d(3,4));
-        map.place(animal2);
-        map.run(directions);
-        System.out.println(animal1.toLongString());
-        System.out.println(animal2.toLongString());
-        System.out.println(map);
+        try {
+            MoveDirection[] directions = OptionParser.parse(args);
+            IWorldMap map = new GrassField(10);
+            Animal animal1 = new Animal(map);
+            map.place(animal1);
+            Animal animal2 = new Animal(map, new Vector2d(3, 4));
+            map.place(animal2);
+            map.run(directions);
+            System.out.println(animal1.toLongString());
+            System.out.println(animal2.toLongString());
+            System.out.println(map);
+        }catch(IllegalArgumentException ex){
+            System.out.println(ex);
+        }
     }
 }

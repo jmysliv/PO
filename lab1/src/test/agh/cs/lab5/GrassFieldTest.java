@@ -28,15 +28,6 @@ public class GrassFieldTest {
         map.place(animal2);
         map.run(directions);
     }
-/*
-    @Test
-    public void lowerLeft() {
-    }
-
-    @Test
-    public void upperRight() {
-    }
-    */
 
     @Test
     public void canMoveTo() {
