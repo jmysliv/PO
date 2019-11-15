@@ -67,6 +67,7 @@ public class RectangularMapTest {
         String[] args = {"f", "b", "r", "l", "f", "l", "r", "f", "f", "f"};
         MoveDirection[] directions = OptionParser.parse(args);
         map.run(directions);
+        System.out.println(map);
         assertEquals("N", map.objectAt(new Vector2d(1, 1)).toString());
         assertEquals("S", map.objectAt(new Vector2d(3, 1)).toString());
         assertFalse(map.isOccupied(new Vector2d(3, 4)));

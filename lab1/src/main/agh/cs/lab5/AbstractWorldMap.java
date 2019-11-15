@@ -12,19 +12,18 @@ import java.util.stream.Collectors;
 
 public abstract class AbstractWorldMap implements IWorldMap {
 
-    protected List<IWorldMapElement> mapElements = new ArrayList<>();
     protected HashMap<Vector2d, IWorldMapElement>  hashMapElements= new HashMap<>();
 
     public void run(MoveDirection[] directions) {
 
-        Animal[] animals = mapElements.stream().filter(el -> el instanceof Animal).toArray(Animal[]::new);
+        IWorldMapElement[] mapElements = hashMapElements.values().toArray(new IWorldMapElement[0]);
+        Animal[] animals = Arrays.stream(mapElements).filter(el -> el instanceof Animal).toArray(Animal[]::new);
 
         int n = animals.length;
-        Animal animalThatMoves;
         for(int i=0; i<directions.length; i++){
             hashMapElements.remove(animals[i%n].getPosition());
             animals[i%n].moveInsideMap(directions[i]);
-            hashMapElements.put(animals[i%n].getPosition(), animals[i%n]);
+            this.place(animals[i%n]);
         }
     }
 
@@ -40,11 +39,6 @@ public abstract class AbstractWorldMap implements IWorldMap {
     }
 
     public boolean isOccupied(Vector2d position) {
-//        for(IWorldMapElement mapElement : mapElements){
-//            if(mapElement.getPosition().equals(position))
-//                return true;
-//        }
-//        return false;
         return hashMapElements.get(position) != null;
     }
 
@@ -54,7 +48,6 @@ public abstract class AbstractWorldMap implements IWorldMap {
 
     public boolean place(Animal animal) {
         if(canMoveTo(animal.getPosition())){
-            mapElements.add(animal);
             hashMapElements.put(animal.getPosition(), animal);
             return true;
         }
@@ -64,15 +57,6 @@ public abstract class AbstractWorldMap implements IWorldMap {
     }
 
     public Object objectAt(Vector2d position) {
-//        Object grassUnderAnimal = null;
-//        for(IWorldMapElement mapElement : mapElements){
-//            if(mapElement.getPosition().equals(position)){
-//                if(mapElement instanceof Grass) grassUnderAnimal = mapElement;
-//                else return mapElement;
-//            }
-//
-//        }
-//        return grassUnderAnimal;
         return hashMapElements.get(position);
     }
 

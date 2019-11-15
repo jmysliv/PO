@@ -9,6 +9,8 @@ import agh.cs.lab4.RectangularMap;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.sql.SQLOutput;
+
 import static org.junit.Assert.*;
 
 public class GrassFieldTest {
@@ -33,7 +35,7 @@ public class GrassFieldTest {
     public void canMoveTo() {
         assertFalse(map.canMoveTo(animal1.getPosition()));
         assertFalse(map.canMoveTo(animal2.getPosition()));
-        assertTrue(map.canMoveTo(new Vector2d(8,4)));
+        assertTrue(map.canMoveTo(new Vector2d(8,-4)));
     }
 
     @Test
@@ -54,27 +56,23 @@ public class GrassFieldTest {
         String[] args = {"f", "b", "r", "l", "f", "l", "r", "f", "f", "f"};
         MoveDirection[] directions = OptionParser.parse(args);
         map.run(directions);
-        assertEquals("N", map.objectAt(new Vector2d(1, -1)).toString());
-        assertEquals("S", map.objectAt(new Vector2d(3, 3)).toString());
+        assertEquals("N", map.objectAt(new Vector2d(2, 2)).toString());
+        assertEquals("S", map.objectAt(new Vector2d(4, 6)).toString());
         assertFalse(map.isOccupied(new Vector2d(-1, -1)));
         assertFalse(map.isOccupied(position2));
     }
 
     @Test
     public void isOccupied() {
-        IWorldMapElement grass = map.getSomeGrassToTestIt();
         assertTrue(map.isOccupied(animal1.getPosition()));
         assertTrue(map.isOccupied(animal2.getPosition()));
-        assertTrue(map.isOccupied(grass.getPosition()));
         assertFalse(map.isOccupied(new Vector2d(1, -3)));
     }
 
     @Test
     public void objectAt() {
-        IWorldMapElement grass = map.getSomeGrassToTestIt();
         assertNull(map.objectAt(new Vector2d(1, -1)));
         assertEquals(animal1, map.objectAt(animal1.getPosition()));
         assertEquals(animal2, map.objectAt(animal2.getPosition()));
-        assertEquals(grass, map.objectAt(grass.getPosition()));
     }
 }
