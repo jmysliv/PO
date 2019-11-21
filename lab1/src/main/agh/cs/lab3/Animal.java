@@ -5,11 +5,16 @@ import agh.cs.lab2.MoveDirection;
 import agh.cs.lab2.Vector2d;
 import agh.cs.lab4.IWorldMap;
 import agh.cs.lab5.AbstractWorldMapElement;
+import agh.cs.lab7.IPositionChangeObserver;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Animal extends AbstractWorldMapElement {
 
     private MapDirection direction;
     private IWorldMap map;
+    private List<IPositionChangeObserver> observers = new ArrayList<>();
 
     public Animal(){
         this.direction = MapDirection.NORTH;
@@ -63,12 +68,10 @@ public class Animal extends AbstractWorldMapElement {
                 break;
             case FORWARD:
                 if(this.position.add(this.direction.toUnitVector()).follows(new Vector2d(0, 0)) && this.position.add(this.direction.toUnitVector()).precedes(new Vector2d(4, 4)))
-                //if(map.canMoveTo(this.position.add(this.direction.toUnitVector())))
                     this.position=this.position.add(this.direction.toUnitVector());
                 break;
             case BACKWARD:
                 if(this.position.substract(this.direction.toUnitVector()).follows(new Vector2d(0, 0)) && this.position.substract(this.direction.toUnitVector()).precedes(new Vector2d(4, 4)))
-               // if(map.canMoveTo(this.position.substract(this.direction.toUnitVector())))
                     this.position=this.position.substract(this.direction.toUnitVector());
                 break;
         }
@@ -83,13 +86,33 @@ public class Animal extends AbstractWorldMapElement {
                 this.direction = this.direction.previous();
                 break;
             case FORWARD:
-                if(map.canMoveTo(this.position.add(this.direction.toUnitVector())))
-                    this.position=this.position.add(this.direction.toUnitVector());
+                if(map.canMoveTo(this.position.add(this.direction.toUnitVector()))) {
+                    Vector2d oldPosition = new Vector2d(this.position.x, this.position.y);
+                    this.position = this.position.add(this.direction.toUnitVector());
+                    this.positionChanged(oldPosition, this.position);
+                }
                 break;
             case BACKWARD:
-                if(map.canMoveTo(this.position.substract(this.direction.toUnitVector())))
-                    this.position=this.position.substract(this.direction.toUnitVector());
+                if(map.canMoveTo(this.position.substract(this.direction.toUnitVector()))) {
+                    Vector2d oldPosition = new Vector2d(this.position.x, this.position.y);
+                    this.position = this.position.substract(this.direction.toUnitVector());
+                    this.positionChanged(oldPosition, this.position);
+                }
                 break;
+        }
+    }
+
+    public void addObserver(IPositionChangeObserver observer){
+        this.observers.add(observer);
+    }
+
+    public void removeObserver(IPositionChangeObserver observer){
+        this.observers.remove(observer);
+    }
+
+    private void positionChanged(Vector2d oldPosition, Vector2d newPosition){
+        for(IPositionChangeObserver observer : observers){
+            observer.positionChanged(oldPosition, newPosition);
         }
     }
 }
