@@ -2,6 +2,8 @@ package pl.edu.agh.to.lab4;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.util.Arrays;
+import java.util.List;
 
 import org.junit.After;
 import org.junit.Before;
@@ -12,10 +14,9 @@ import static org.junit.Assert.assertTrue;
 
 public class FinderTest {
     private ByteArrayOutputStream outContent = new ByteArrayOutputStream();
-
     private PrintStream originalOut;
-
-    private Finder suspectFinder = new Finder(new PersonDataProvider(), new PrisonersDataProvider());
+    private List<SuspectAggregate> aggregates = Arrays.asList(new PersonDataProvider(), new PrisonersDataProvider());
+    private Finder suspectFinder = new Finder(new CompositeAggregate(aggregates));
 
     @Test
     public void testDisplayingNotJailedPrisoner() {

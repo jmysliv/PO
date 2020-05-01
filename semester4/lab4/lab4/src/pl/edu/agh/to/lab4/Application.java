@@ -1,9 +1,13 @@
 package pl.edu.agh.to.lab4;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class Application {
 
     public static void main(String[] args) {
-        Finder suspects = new Finder(new PersonDataProvider(), new PrisonersDataProvider());
+        List<SuspectAggregate> aggregates = Arrays.asList(new PersonDataProvider(), new PrisonersDataProvider());
+        Finder suspects = new Finder(new CompositeAggregate(aggregates));
         suspects.displayAllSuspectsWithName("Janusz");
     }
 }
