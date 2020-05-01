@@ -2,10 +2,6 @@ package pl.edu.agh.to.lab4;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
 
 import org.junit.After;
 import org.junit.Before;
@@ -19,7 +15,7 @@ public class FinderTest {
 
     private PrintStream originalOut;
 
-    private Finder suspectFinder = new Finder(new PersonDataProvider(), new PrisonersDatabase());
+    private Finder suspectFinder = new Finder(new PersonDataProvider(), new PrisonersDataProvider());
 
     @Test
     public void testDisplayingNotJailedPrisoner() {

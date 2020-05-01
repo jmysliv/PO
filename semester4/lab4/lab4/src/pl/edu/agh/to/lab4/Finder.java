@@ -1,38 +1,39 @@
 package pl.edu.agh.to.lab4;
 
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Map;
+import java.util.Iterator;
 
 public class Finder {
-    private PersonDataProvider personDataProvider;
-    private PrisonersDatabase prisonersDatabase;
+    private SuspectAggregate personDataProvider;
+    private SuspectAggregate prisonersDataProvider;
 
-    public Finder(PersonDataProvider personDataProvider, PrisonersDatabase prisonersDatabase) {
+    public Finder(SuspectAggregate personDataProvider, SuspectAggregate prisonersDataProvider) {
        this.personDataProvider = personDataProvider;
-       this.prisonersDatabase = prisonersDatabase;
+       this.prisonersDataProvider = prisonersDataProvider;
     }
 
     public void displayAllSuspectsWithName(String name) {
         ArrayList<Suspect> suspects = new ArrayList<Suspect>();
 
-        for (Collection<Prisoner> prisonerCollection : prisonersDatabase.findAll().values()) {
-            for (Suspect suspect : prisonerCollection) {
-                if (suspect.isSuspected() && suspect.getFirstname().equals(name)) {
-                    suspects.add(suspect);
-                }
-                if (suspects.size() >= 10) {
-                    break;
-                }
+        Iterator<Suspect> prisonerIterator = prisonersDataProvider.getIterator();
+        while(prisonerIterator.hasNext()) {
+            Suspect suspect = prisonerIterator.next();
+            if (suspect.isSuspected() && suspect.getFirstname().equals(name)) {
+                suspects.add(suspect);
+            }
+            if (suspects.size() >= 10) {
+                break;
             }
         }
 
         if (suspects.size() < 10) {
-            for (Suspect suspect :personDataProvider.getAllCracovCitizens()) {
+            Iterator<Suspect> personIterator = personDataProvider.getIterator();
+            while(personIterator.hasNext()) {
+                Suspect suspect = personIterator.next();
                 if (suspect.isSuspected() && suspect.getFirstname().equals(name)) {
                     suspects.add(suspect);
                 }
-                if (suspects.size() > 10) {
+                if (suspects.size() >= 10) {
                     break;
                 }
             }

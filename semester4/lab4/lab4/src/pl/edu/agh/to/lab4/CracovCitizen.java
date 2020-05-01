@@ -1,6 +1,6 @@
 package pl.edu.agh.to.lab4;
 
-public class CracovCitizen extends Suspect{
+public class CracovCitizen extends Suspect {
     private int age;
 
     public CracovCitizen(String firstname, String lastname, int age) {

@@ -2,8 +2,10 @@ package pl.edu.agh.to.lab4;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Iterator;
+import java.util.stream.Collectors;
 
-public class PersonDataProvider {
+public class PersonDataProvider implements SuspectAggregate {
 
     private final Collection<CracovCitizen> cracovCitizens = new ArrayList<CracovCitizen>();
 
@@ -23,5 +25,11 @@ public class PersonDataProvider {
 
     public Collection<CracovCitizen> getAllCracovCitizens() {
         return cracovCitizens;
+    }
+
+    @Override
+    public Iterator<Suspect> getIterator() {
+        Collection<Suspect> suspects = cracovCitizens.stream().map( x -> (Suspect) x).collect(Collectors.toList());
+        return suspects.iterator();
     }
 }
