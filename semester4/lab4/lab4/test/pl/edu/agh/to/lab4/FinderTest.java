@@ -20,25 +20,25 @@ public class FinderTest {
 
     @Test
     public void testDisplayingNotJailedPrisoner() {
-        suspectFinder.displayAllSuspectsWithName("Janusz");
+        suspectFinder.display(new NameSearchStrategy("Janusz"));
         assertContentIsDisplayed("Janusz Podejrzany");
     }
 
     @Test
     public void testDisplayingSuspectedPerson() {
-        suspectFinder.displayAllSuspectsWithName("Jan");
+        suspectFinder.display(new NameSearchStrategy("Jan"));
         assertContentIsDisplayed("Jan Kowalski");
     }
 
     @Test
     public void testNotDisplayingTooYoungPerson() {
-        suspectFinder.displayAllSuspectsWithName("Janusz");
+        suspectFinder.display(new NameSearchStrategy("Janusz"));
         assertContentIsNotDisplayed("Janusz Gimbus");
     }
 
     @Test
     public void testNotDisplayingJailedPrisoner() {
-        suspectFinder.displayAllSuspectsWithName("Adam");
+        suspectFinder.display(new NameSearchStrategy("Adam"));
         assertContentIsNotDisplayed("Adam Future");
     }
 

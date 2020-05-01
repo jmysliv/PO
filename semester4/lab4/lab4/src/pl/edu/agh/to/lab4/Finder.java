@@ -10,13 +10,13 @@ public class Finder {
        this.compositeAggregate = compositeAggregate;
     }
 
-    public void displayAllSuspectsWithName(String name) {
+    public void display(SearchStrategy strategy) {
         ArrayList<Suspect> suspects = new ArrayList<Suspect>();
 
         Iterator<Suspect> iterator = compositeAggregate.getIterator();
         while(iterator.hasNext()) {
             Suspect suspect = iterator.next();
-            if (suspect.isSuspected() && suspect.getFirstname().equals(name)) {
+            if (suspect.isSuspected() && strategy.filter(suspect)) {
                 suspects.add(suspect);
             }
             if (suspects.size() >= 10) {

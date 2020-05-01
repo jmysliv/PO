@@ -18,6 +18,11 @@ public class Prisoner extends Suspect {
         return judgementYear + senteceDuration >= getCurrentYear();
     }
 
+    public int getAge(){
+        int birthYear = Integer.parseInt(pesel.substring(0, 2)) + 1900;
+        return getCurrentYear() - birthYear;
+    }
+
     @Override
     public boolean isSuspected() {
         return !isJailedNow();

@@ -22,4 +22,6 @@ public abstract class Suspect {
     }
 
     public abstract boolean isSuspected();
+
+    public abstract int getAge();
 }

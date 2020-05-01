@@ -7,7 +7,7 @@ import java.util.Spliterators;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
-public class CompositeAggregate {
+public class CompositeAggregate implements SuspectAggregate {
     private List<SuspectAggregate> aggregates;
 
     CompositeAggregate(List<SuspectAggregate> aggregates){
