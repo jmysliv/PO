@@ -1,31 +1,20 @@
 package pl.edu.agh.to.lab4;
 
-public class CracovCitizen {
-    private String firstname;
-
-    private String lastname;
-
+public class CracovCitizen extends Suspect{
     private int age;
 
     public CracovCitizen(String firstname, String lastname, int age) {
+        super(firstname, lastname);
         this.age = age;
-        this.firstname = firstname;
-        this.lastname = lastname;
     }
 
     public int getAge() {
         return age;
     }
 
-    public String getFirstname() {
-        return firstname;
-    }
 
-    public String getLastname() {
-        return lastname;
-    }
-
-    public String display() {
-        return firstname + " " + lastname;
+    @Override
+    public boolean isSuspected() {
+        return getAge() > 18;
     }
 }
