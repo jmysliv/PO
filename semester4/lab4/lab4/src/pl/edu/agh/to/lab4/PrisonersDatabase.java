@@ -24,14 +24,10 @@ public class PrisonersDatabase {
         return prisoners;
     }
 
-
     private void addPrisoner(String category, Prisoner prisoner) {
         if (!prisoners.containsKey(category))
             prisoners.put(category, new ArrayList<Prisoner>());
         prisoners.get(category).add(prisoner);
     }
 
-    public static String render(Prisoner prisoner) {
-        return prisoner.name + " " + prisoner.surname;
-    }
 }

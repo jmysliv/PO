@@ -19,39 +19,30 @@ public class FinderTest {
 
     private PrintStream originalOut;
 
-    private Collection<Person> allPersons = new ArrayList<Person>();
-
-    private Map<String, Collection<Prisoner>> allPrisoners = new HashMap<String, Collection<Prisoner>>();
-
-    private Finder suspectFinder = new Finder(allPersons, allPrisoners);
+    private Finder suspectFinder = new Finder(new PersonDataProvider(), new PrisonersDatabase());
 
     @Test
     public void testDisplayingNotJailedPrisoner() {
-        addPrisoner("Wiezeienie stanowe", new Prisoner("Jan", "Kowalski", "802104543357", 2000, 1));
-        suspectFinder.displayAllSuspectsWithName("Jan");
-        assertContentIsDisplayed("Jan Kowalski");
+        suspectFinder.displayAllSuspectsWithName("Janusz");
+        assertContentIsDisplayed("Janusz Podejrzany");
     }
 
     @Test
     public void testDisplayingSuspectedPerson() {
-        allPersons.add(new Person("Jan", "Kowalski", 20));
         suspectFinder.displayAllSuspectsWithName("Jan");
         assertContentIsDisplayed("Jan Kowalski");
     }
 
     @Test
     public void testNotDisplayingTooYoungPerson() {
-        allPersons.add(new Person("Jan", "Kowalski", 15));
-        suspectFinder.displayAllSuspectsWithName("Jan");
-        assertContentIsNotDisplayed("Jan Kowalski");
+        suspectFinder.displayAllSuspectsWithName("Janusz");
+        assertContentIsNotDisplayed("Janusz Gimbus");
     }
 
     @Test
     public void testNotDisplayingJailedPrisoner() {
-        allPersons.add(new Person("Jan", "Kowalski", 20));
-        addPrisoner("Wiezeienie stanowe", new Prisoner("Jan", "Kowalski2", "802104543357", 2000, 20));
-        suspectFinder.displayAllSuspectsWithName("Jan");
-        assertContentIsNotDisplayed("Jan Kowalski2");
+        suspectFinder.displayAllSuspectsWithName("Adam");
+        assertContentIsNotDisplayed("Adam Future");
     }
 
     private void assertContentIsDisplayed(String expectedContent) {
@@ -75,9 +66,4 @@ public class FinderTest {
         System.setOut(originalOut);
     }
 
-    private void addPrisoner(String category, Prisoner news) {
-        if (!allPrisoners.containsKey(category))
-            allPrisoners.put(category, new ArrayList<Prisoner>());
-        allPrisoners.get(category).add(news);
-    }
 }
