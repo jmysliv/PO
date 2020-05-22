@@ -70,21 +70,25 @@ public class OrderTest {
 		// given
 		BigDecimal expectedProductPrice = BigDecimal.valueOf(1000);
 		Product product = mock(Product.class);
-		given(product.getPrice()).willReturn(expectedProductPrice);
-		Order order = new Order(Collections.singletonList(product));
+		given(product.getPriceWithDiscount()).willReturn(expectedProductPrice);
+		Order order1 = new Order(Collections.singletonList(product));
+		Order order2 = new Order(Collections.singletonList(product));
+		order1.setDiscount(0.2);
 
 		// when
-		BigDecimal actualProductPrice = order.getPrice();
+		BigDecimal actualProductPrice1 = order1.getPrice();
+		BigDecimal actualProductPrice2 = order2.getPrice();
 
 		// then
-		assertBigDecimalCompareValue(expectedProductPrice, actualProductPrice);
+		assertBigDecimalCompareValue(expectedProductPrice.multiply(new BigDecimal(0.8)), actualProductPrice1);
+		assertBigDecimalCompareValue(expectedProductPrice, actualProductPrice2);
 	}
 
 	private Order getOrderWithCertainProductPrice(double productPriceValue) {
 		BigDecimal productPrice = BigDecimal.valueOf(productPriceValue);
 		Product product = mock(Product.class);
-		given(product.getPrice()).willReturn(productPrice);
-		return new Order(Collections.singletonList( product));
+		given(product.getPriceWithDiscount()).willReturn(productPrice);
+		return new Order(Collections.singletonList(product));
 	}
 
 	@Test
@@ -215,5 +219,27 @@ public class OrderTest {
 
 		// then
 		assertFalse(order.isPaid());
+	}
+
+	@Test
+	public void testProductDiscount() throws Exception{
+		//given
+		Order order1 = getOrderWithMockedProducts();
+		Order order2 = getOrderWithMockedProducts();
+		// when
+		order1.setDiscount(0.1);
+
+		// then
+		assertEquals(0.1, order1.getDiscount());
+		assertEquals(0, order2.getDiscount());
+	}
+
+	@Test
+	public void testDiscountException() throws Exception{
+		//given
+		Order order = getOrderWithMockedProducts();
+		// when then
+		assertThrows(IllegalArgumentException.class, () -> order.setDiscount(2));
+		assertThrows(IllegalArgumentException.class, () -> order.setDiscount(-0.1));
 	}
 }

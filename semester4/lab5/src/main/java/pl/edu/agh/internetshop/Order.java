@@ -13,6 +13,7 @@ public class Order {
     private Shipment shipment;
     private ShipmentMethod shipmentMethod;
     private PaymentMethod paymentMethod;
+    private double discount;
 
     public Order(List<Product> products) {
         if(products == null){
@@ -21,6 +22,7 @@ public class Order {
         this.products = products;
         id = UUID.randomUUID();
         paid = false;
+        this.discount = 0;
     }
 
     public UUID getId() {
@@ -46,7 +48,7 @@ public class Order {
     }
 
     public BigDecimal getPrice() {
-        return products.stream().map(Product::getPrice).reduce(new BigDecimal(0), BigDecimal::add);
+        return products.stream().map(Product::getPriceWithDiscount).reduce(new BigDecimal(0), BigDecimal::add).multiply(new BigDecimal(1-discount));
     }
 
     public BigDecimal getPriceWithTaxes() {
@@ -77,5 +79,16 @@ public class Order {
 
     public void setShipment(Shipment shipment) {
         this.shipment = shipment;
+    }
+
+    public double getDiscount() {
+        return discount;
+    }
+
+    public void setDiscount(double discount) {
+        if(discount > 1 || discount < 0){
+            throw new IllegalArgumentException();
+        }
+        this.discount = discount;
     }
 }
