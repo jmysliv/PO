@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="pl.edu.agh.school.guice.SchoolModuleTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-10-22T14:17:59" hostname="kuba-PC" time="0.169">
-  <properties/>
-  <testcase name="singletonTest()" classname="pl.edu.agh.school.guice.SchoolModuleTest" time="0.169"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>
