@@ -1,10 +1,13 @@
+import io.reactivex.rxjava3.core.BackpressureStrategy;
 import io.reactivex.rxjava3.core.Observable;
 import io.reactivex.rxjava3.core.Scheduler;
+import io.reactivex.rxjava3.observables.ConnectableObservable;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 import org.junit.jupiter.api.Test;
 import util.Color;
 
 import java.io.FileNotFoundException;
+import java.util.concurrent.TimeUnit;
 
 import static util.ColorUtil.print;
 import static util.ColorUtil.printThread;
@@ -123,7 +126,14 @@ public class RxTests {
      */
     @Test
     public void switchThreadsDuringMoviesProcessing() {
-
+        MovieReader movieReader = new MovieReader();
+        movieReader.getMoviesAsStream(MOVIES1_DB)
+                .take(10)
+                .subscribeOn(Schedulers.newThread())
+                .doOnNext(movie -> printThread(movie.getIndex(), Color.RED))
+                .observeOn(Schedulers.newThread())
+                .doOnNext(movie -> printThread(movie.getIndex(), Color.BLUE))
+                .blockingSubscribe(movie -> printThread(movie.getIndex(), Color.GREEN));
     }
 
     /**
@@ -148,6 +158,12 @@ public class RxTests {
         final MovieDescriptor movie1Descriptor = new MovieDescriptor(MOVIES1_DB, Color.GREEN);
         final MovieDescriptor movie2Descriptor = new MovieDescriptor(MOVIES2_DB, Color.BLUE);
 
+        Observable.just(movie1Descriptor, movie2Descriptor)
+                .flatMap(db -> movieReader.getMoviesAsStream(db.movieDbFilename)
+                        .doOnNext(movie -> print(movie, db.getDebugColor()))
+                        .subscribeOn(Schedulers.io()))
+                .subscribe(movie -> print(movie, Color.RED));
+        Thread.sleep(10000);
     }
 
     /**
@@ -155,7 +171,14 @@ public class RxTests {
      */
     @Test
     public void loadMoviesWithDelay() {
+        MovieReader movieReader = new MovieReader();
 
+        Observable<Movie> moviesStream = movieReader.getMoviesAsStream(MOVIES1_DB)
+                .subscribeOn(Schedulers.newThread());
+        Observable<Long> interval = Observable.interval(1, TimeUnit.SECONDS);
+
+        Observable.zip(moviesStream, interval, (movie, i) -> movie)
+                .blockingSubscribe(movie -> print(movie, Color.GREEN));
     }
 
     /**
@@ -163,7 +186,15 @@ public class RxTests {
      */
     @Test
     public void trackMoviesLoadingWithBackpressure() {
-
+        MovieReader movieReader = new MovieReader();
+        movieReader.getMoviesAsStream(MOVIES1_DB)
+                .doOnNext(movie -> print(movie, Color.RED))
+                .doOnNext(movie -> Thread.sleep(10))
+                .subscribeOn(Schedulers.newThread())
+                .toFlowable(BackpressureStrategy.LATEST)
+                .observeOn(Schedulers.io(), true, 1)
+                .doOnNext(this::displayProgress)
+                .blockingSubscribe();
     }
 
     /**
@@ -171,7 +202,22 @@ public class RxTests {
      */
     @Test
     public void oneMovieStreamManyDifferentSubscribers() {
+        MovieReader movieReader = new MovieReader();
+        // cold observable
+        final Observable<Movie> movieObservable = movieReader.getMoviesAsStream(MOVIES1_DB);
 
+        // hot observable
+        final ConnectableObservable<Movie> movieConnectableObservable = movieObservable.publish();
+
+        movieConnectableObservable
+                .take(10)
+                .subscribe(movie -> print(movie, Color.RED));
+
+        movieConnectableObservable
+                .filter(movie -> movie.getRating().equals("G"))
+                .subscribe(movie -> print(movie, Color.BLUE));
+
+        movieConnectableObservable.connect();
     }
 
     /**
@@ -179,7 +225,14 @@ public class RxTests {
      */
     @Test
     public void cacheMoviesInfo() {
+        MovieReader movieReader = new MovieReader();
+        final Observable<Movie> movieObservable = movieReader.getMoviesAsStream(MOVIES1_DB).cache();
 
+        // reading 1-st time (from file)
+        movieObservable.subscribe(movie -> print(movie, Color.RED));
+
+        // emit cached values once again (no reading from file)
+        System.out.println(movieObservable.count().blockingGet());
     }
 
     private void displayProgress(Movie movie) throws InterruptedException {
